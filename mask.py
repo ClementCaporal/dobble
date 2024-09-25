@@ -17,6 +17,7 @@ DEBUG = False
 def _get_contour_mask(img: np.ndarray, margin_pix: int, ths: int) -> np.ndarray:
     assert img.shape[0] == img.shape[1]
 
+
     mask = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) < ths
     mask = 255*mask.astype(np.uint8)
 

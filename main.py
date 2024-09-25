@@ -32,4 +32,4 @@ card.main(masks_folder=masks_folder,
 
 pdf.main(cards_folder=cards_folder,
          out_print_folder=print_folder,
-         card_size_cm=13)
+         card_size_cm=8.2)

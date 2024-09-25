@@ -98,7 +98,7 @@ class Card:
     """
     Start with 8 symbols of the same size in the middle of the image card
     and let them evolve overtime to randomly translate, rotate and shrink/grow,
-    under the constraint of non-overlapping 
+    under the constraint of non-overlapping
 
     No need to work with the high-resolution symbol images. Low-res binary masks are
     enough to estimate the overlap.
@@ -238,8 +238,8 @@ def main(masks_folder: str,
             card_img[y_top:y_top+new_size,
                      x_left:x_left+new_size][resized_mask > 0] = resized_symbol[resized_mask > 0]
 
-        cv2.circle(card_img, (card_size_pix // 2, card_size_pix // 2),
-                   card_size_pix // 2, (0, 0, 0), circle_width_pix)
+        # cv2.circle(card_img, (card_size_pix // 2, card_size_pix // 2),
+        #            card_size_pix // 2, (0, 0, 0), circle_width_pix)
         cv2.imwrite(card_path, card_img)
 
         if DEBUG_FINAL:

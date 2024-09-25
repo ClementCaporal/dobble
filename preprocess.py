@@ -49,6 +49,11 @@ def main(images_folder: str,
         input_path = os.path.join(images_folder, name)
         output_path = os.path.join(out_images_folder, name)
 
-        img = cv2.imread(input_path)
+        img = cv2.imread(input_path, cv2.IMREAD_UNCHANGED)
+        # Change every transparent pixel to white
+        if img.shape[2] == 4:
+            alpha = img[:, :, 3]
+            img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
+            img[alpha == 0] = 255
         img = _to_square(img)
         cv2.imwrite(output_path, img)
